@@ -46,11 +46,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'attribute' =>'category',    
             'label' => 'category',
             'value' => function($model) {
-               // var_dump($model->category); die;
-                    return isset($model->categoryy)?$model->categoryy->category_name:'';
+                       return isset($model->categoryy)?$model->categoryy->category_name:'';
                   },
                
             ],
+            [
+            'attribute' => 'blog_type',
+            'label' => 'Blog Type',
+            'value' => function($model) {
+                return $model->blog_type==1?'Text': ($model->blog_type==2?'video':'Photo');
+            },
+            'filter' => Html::activeDropDownList($searchModel, 'blog_type', ['1' => 'Text', '2' => 'Video', '3' => 'Photo'], ['class' => 'form-control selectpicker', 'prompt' => 'All']),
+        ],              
                           [
             'attribute' =>'language',    
             'label' => 'language',
