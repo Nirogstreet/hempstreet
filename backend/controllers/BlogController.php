@@ -75,20 +75,7 @@ class BlogController extends Controller {
             mkdir(Yii::getAlias('@frontend/web/images/blogs/'), 0777, true);
         }
       
-           $rootPath=Yii::$app->params['frontendUrl'];
-           $myfile = fopen($rootPath ."sitemap/test.xml", "r") or die("Unable to open file!");
-         //  echo '<pre>'; print_r($rootPath); die;
-           $txt = 'heelo';
-           
-           fwrite($myfile,"\n");
-           fwrite($myfile,date("Y-m-d H:i:s",time()));
-           fwrite($myfile,"\n");
-      //    echo '<pre>'; print_r($txt); die;
-           fwrite($myfile, $txt);
-           fwrite($myfile,"\n");
-           fwrite($myfile,"\n");
-           fclose($myfile);  
-        
+          
          if ($model->load(Yii::$app->request->post()) && $model->validate()) { //echo '<pre>'; print_r($_POST); die;
             //    echo '<pre>'; print_r($_POST); print_r($_FILES); die;
             
